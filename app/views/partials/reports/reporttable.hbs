@@ -1,0 +1,51 @@
+<script id="J-report-table-tpl" type="text/x-handlebars-template">
+<div class="J-report-table-wp">
+<h4 class="text-center">\{{title}}</h4>
+<div class="text-center">{{request.session.company.name}}<div>
+<div class="text-center">统计日期：\{{start}}-\{{end}}<div>
+<div class="text-center">创建日期：\{{now}}<div>
+<table class="table m-top10 table-report">
+  <thead>
+    <tr class="success">
+      \{{#each thead}}
+      <th width=\{{this.width}}>\{{this.value}}</th>
+      \{{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    \{{#is tbody.length "==" 0}}
+    <tr class="active">
+      <td colspan=5>暂无任何交易记录</td>
+    </tr>
+    \{{/is}}
+    \{{#each tbody}}
+    <tr class="active">
+      \{{#each this.data}}
+      <td>\{{this}}</td>
+      \{{/each}}
+    </tr>
+    \{{#each this.children}}
+      <tr>
+      \{{#each this}}
+      <td>\{{this}}</td>
+      \{{/each}}
+       </tr>
+    \{{/each}}
+    \{{/each}}
+  </tbody>
+  <tfoot>
+    <tr class="success">
+      \{{#each tfoot}}
+      <th width=\{{this.width}}>\{{this.value}}</th>
+      \{{/each}}
+    </tr>
+    \{{#each tfootBody}}
+    <tr class="active">
+      \{{#each this.data}}
+      <td>\{{this}}</td>
+      \{{/each}}
+    </tr>
+    \{{/each}}
+  </tfoot>
+</table>
+</script>

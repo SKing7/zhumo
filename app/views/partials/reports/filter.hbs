@@ -1,0 +1,36 @@
+<div class="J-report-setting report-setting-wp">
+    <form action="" method="get" class="J-reports-filter-form form-horizontal">
+        <div class="row">
+            <div class="col-md-1">
+                <label class="control-label">统计时间：</label>
+            </div>
+            <div class="J-date-picker col-md-2 relative">
+                <input type="text" class="form-control" name="start" value="">
+                <span class="to-label">至</span>
+            </div>
+            <div class="J-date-picker col-md-2">
+                <input type="text" class="form-control" name="end" value="">
+            </div>
+            <div class="col-md-4 J-set-datepicker">
+                <span class="label label-primary" data-interval="7d">最近一周</span><span class="label label-primary" data-interval="1m">最近一月</span><span class="label label-primary"data-interval="0.5y">最近半年</span>
+            </div>
+        </div>
+        <div class="row m-top20">
+            <label class="col-md-1 control-label">导出格式：</label>
+            <div class="col-md-11">
+                <label class="radio-inline">
+                    <input checked=true type="radio" name="fileformat" value="excel">EXCEL
+                </label>
+                <label class="radio-inline hidden">
+                    <input type="radio" name="fileformat" value="csv">CSV
+                </label>
+            </div>
+        </div>
+        <div class="row m-top20">
+            <div class="col-md-2 col-md-offset-10">
+                <button type="button" class="J-preview btn btn-default">预览</button>
+                <button type="submit" class="J-export m-right10 btn btn-primary">导出</button>
+            </div>
+        </div>
+    </form>
+</div>

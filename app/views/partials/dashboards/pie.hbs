@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">收支项目</h3>
+    </div>
+    <div class="panel-body J-pie-wrapper J-toggle-show-wp" data-target-class="J-date-setting-wp">
+        {{> dashboards/timefilter}}
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#inout-pie-halfyear" class="J-toggle-tab J-toggle-show-trigger" role="tab" data-toggle="tab">最近半年</a></li>
+            <li><a href="#inout-pie-month" class="J-toggle-tab J-toggle-show-trigger" role="tab" data-toggle="tab">本月</a></li>
+            <li><a href="#inout-pie-diy" class="J-toggle-tab J-toggle-show-trigger J-trigger-show" role="tab" data-toggle="tab" data-nofetch="true">自定义</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active row" id="inout-pie-halfyear">
+                <div class="graph-area inout-halfyear-income col-md-6 hidden"></div>
+                <div class="graph-area inout-halfyear-expense col-md-6 hidden"></div>
+            </div>
+            <div class="tab-pane row" id="inout-pie-month">
+                <div class="graph-area inout-month-income col-md-6 hidden"></div>
+                <div class="graph-area inout-month-expense col-md-6 hidden"></div>
+            </div>
+            <div class="tab-pane row J-diy" id="inout-pie-diy">
+                <div class="graph-area inout-diy-income col-md-6 hidden"></div>
+                <div class="graph-area inout-diy-expense col-md-6 hidden"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <p>恭喜您成功注册成为朱墨记账的新用户，请点击如下链接激活账户。</p>
+    <a style="width:500px;display:block;word-wrap:break-word;" href="{{ config.baseUrl }}/users/signup/verify/{{ encodeURIComponent(sign) }}">{{ config.baseUrl }}/users/signup/verify/{{ encodeURIComponent(sign) }}</a>
+{% endblock %}
+

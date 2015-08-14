@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <p>你在 {{dateStr}} 被 {{company.name}} 的管理员授权成为其子账户。</p>
+    <p>子账户权限为：{{member.role}}。</p>
+    <p>请点击如下链接进行账户激活：<a style="width:500px;display:block;word-wrap:break-word;" href="{{ config.baseUrl }}/api/companies/verifymember/{{ encodeURIComponent(sign) }}">{{ config.baseUrl }}/api/companies/verifymember/{{ encodeURIComponent(sign) }}</a> </p>
+{% endblock %}
+

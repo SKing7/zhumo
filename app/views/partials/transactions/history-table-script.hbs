@@ -1,0 +1,31 @@
+<script id="J-record-history-tpl" type="text/x-handlebars-template">
+<table class="table table-hover table-th-bordered">
+    <thead>
+    <tr>
+        \{{#each names}}
+        <th>\{{this}}</th>
+        \{{/each}}
+    </tr>
+    </thead>
+    <tbody>
+        \{{#each data}}
+        <tr>
+            <td width="15">\{{this.type}}</td>
+            <td width="15">\{{this.subType}}</td>
+            <td width="15">\{{this.amount}}</td>
+            <td width="10">\{{this.gmtHappened}}</td>
+            <td width="15">\{{this.from}}</td>
+            <td width="15">\{{this.remark}}</td>
+            <td width="15">
+                <a href="javascript:;" class="J-history-del fa fa-trash-o"></a>
+                <a href="javascript:;" class="J-history-update fa fa-pencil-square-o"></a>
+                <input type="hidden" name="t_id" value="\{{this._id}}"/>
+            </td>
+        </tr>
+        \{{/each}}
+    </tbody>
+<table>
+</script>
+<script id="J-record-pagination-tpl" type="text/x-handlebars-template">
+{{> pagination}}
+</script>

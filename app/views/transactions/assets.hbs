@@ -1,0 +1,25 @@
+{{!< ucenter}}
+
+{{#append "header"}}
+    {{> transactions/tab}}
+{{/append}}
+
+<div class="J-account-sum"></div>
+<form class="form-horizontal J-transactions-asserts-form" action="/api/transactions" method="post">
+    <div class="row m-bottom20">
+        <label class="control-label col-md-1">金额</label>
+        <div class="col-md-5">
+            <input name="amount" class="form-control"/>
+        </div>
+        <label class="control-label col-md-1">日期</label>
+        <div class="col-md-5 J-date-picker">
+            <input name="happened" class="form-control"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+</form>
+{{> transactions/accountsum}}

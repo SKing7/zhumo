@@ -1,0 +1,49 @@
+{{!< ucenter}}
+
+{{#append "header"}}
+    {{>settings/tab}}
+{{/append}}
+
+{{#each accounts}}
+{{#if this.childNodes.length}}
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel panel-default panel-has-form">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h3 class="panel-title">{{name}}</h3>
+                    </div>
+                    <div id="j-error-container-{{_id}}" class="col-sm-5 text-right"></div>
+                    <div class="col-sm-4">
+                        <form class="j-add-child-form" action="/api/accounts/addchild" method="post" class="pull-right form-inline" role="form" data-error-container="#j-error-container-{{_id}}" novalidate>
+                            <div class="input-group">
+                                <input type="text" name="name" class="input-sm form-control" placeholder="添加新的{{name}}" required data-msg-required="请输入{{name}}类型名称" data-clear-btn='true'>
+                                <input type="hidden" name="parentId" value="{{_id}}" class="j-parent-id" />
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-sm btn-primary">添加</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="childnodes" class="row">
+                    {{#each childNodes}}
+                    <div class="col-sm-6" data-id="{{this._id}}">
+                        <div class="row-item">
+                            <a href="/api/accounts/delete/{{this._id}}" class="pull-right j-remove-child hidden">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                            {{this.name}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+{{/each}}

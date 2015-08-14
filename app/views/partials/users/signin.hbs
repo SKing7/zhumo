@@ -1,0 +1,41 @@
+{{> messages}}
+
+<form class="form-horizontal form-signup login-section" action="/users/signin" role="form" method="post" data-error-container=".J-error-container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="/users/signup" class="color-main pull-right">免费注册</a>用户登录</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <span class="fa fa-envelope-o fa-fw"></span>
+                    <input name="email" type="text" class="input-lg form-control" placeholder="请输入邮箱号" required data-msg-required="请输入登录邮箱" data-clear-btn='true' />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 login-group">
+                    <span class="fa fa-lock fa-fw"></span>
+                    <input name="password" type="password" class="input-lg form-control" placeholder="请输入密码" required data-msg-required="请输入登录密码" data-clear-btn='true' />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-7 login-group">
+                    <label class="color-weak"><input name="autoLogin" type="checkbox"/> 下次自动登陆</label>
+                </div>
+                <div class="col-sm-5 text-right">
+                    <a href="/users/getpassword">忘记密码？</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 J-error-container"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary btn-block btn-lg" type="submit">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

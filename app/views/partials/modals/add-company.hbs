@@ -1,0 +1,27 @@
+<div class="modal" id="j-modal-add-company" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title">创建公司</h4>
+            </div>
+            <div class="modal-body">
+                <form id="j-add-company-form" action="/api/companies/create" class="form-horizontal" role="form" method="post">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">新公司名称</label>
+                        <div class="col-sm-8">
+                            <input name="name" type="text" class="form-control" placeholder="请填写新公司名称" required autocomplete='off' data-clear-btn='true'>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">&nbsp;</label>
+                        <div class="col-sm-8">
+                            <button class="btn btn-primary btn-block" type="submit">创建公司</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

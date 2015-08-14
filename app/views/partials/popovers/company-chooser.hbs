@@ -1,0 +1,25 @@
+<script type="text/template" id="j-company-chooser-template">
+    <div class="popover popover-zhumo popover-chooser">
+        <div class="arrow"></div>
+        <h3 class="popover-title"></h3>
+        <div class="popover-content"></div>
+    </div>
+</script>
+
+<script type="text/template" id="j-company-chooser-content">
+    <ul class="popover-menu">
+        {{#each request.user.companies}}
+            <li{{#is _id '===' @root.request.session.company._id}} class="active"{{/is}}>
+                {{#is _id '===' @root.request.session.company._id}}
+                    <span class="pull-right text-success"><i class="fa fa-2x fa-check-circle"></i></span>
+                    <a class="main-anchor" href="/api/companies/select/{{_id}}">{{name}}</a>
+                    <a href="/settings/members"><small><i class="fa fa-plus-circle"></i> 添加子账号</small></a>
+                {{else}}
+                    <a class="main-anchor" href="/api/companies/select/{{_id}}">{{name}}</a>
+                {{/is}}
+            </li>
+        {{else}}
+        <li>没有公司</li>
+        {{/each}}
+    </ul>
+</script>

@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <p>你在 {{dateStr}} 为 {{company.name}} 授权了1个子账户。</p>
+    <p>子账户权限：{{member.role}}。</p>
+    <p>子账户邮箱：{{member.email}}。</p>
+    <p>子账户状态：等待激活。</p>
+{% endblock %}
+

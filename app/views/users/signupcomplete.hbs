@@ -1,0 +1,33 @@
+{{!< index}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <p class="alert alert-warning">声明：朱墨记账将严格遵守<a href="/agreements/privacy">用户信息保密协议</a>，保障用户权益。</p>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">注册成功</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="text-right text-success">
+                                <h3 class="fa fa-3x fa-check"></h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <h3>恭喜注册成功！</h3>
+                            <p>为了保障账户安全，我们已经给{{user.email}}发送验证邮件，请<a href="{{emailUrl}}" target="_blank">登录邮箱</a>进行激活。</p>
+                            <p style="width: 200px;">
+                            <a class="btn btn-lg btn-block btn-primary" href="/api/companies/select/{{company._id}}">开始记账</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

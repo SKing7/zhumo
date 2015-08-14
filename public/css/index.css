@@ -1,0 +1,134 @@
+/* index */
+.navbar h1 {
+    margin: 0;
+}
+.navbar {
+    background: #F3F3F2;
+    height: 80px;
+    border: none;
+}
+.navbar-brand {
+    padding: 0 15px;
+}
+.index-header .navbar-right li {
+    margin-left: 20px;
+    font-size:20px;
+    font-weight: bold;
+}
+.index-header .current li a {
+    color: #45b865;
+}
+.index-header .navbar-right li a:hover {
+    color: #45b865;
+}
+.co-core-index .section-content .row {
+    padding: 80px;
+}
+.co-core-index .section-content p {
+    font-size: 18px;
+    color: #666;
+}
+.co-core-index #product-section {
+    background: #FFFFFF;
+}
+.pg-core-index {
+    padding: 0;
+    background: url(i/bg-index-login-section.jpg) center -186px no-repeat;
+    background-size: 100% auto;
+}
+.pg-core-index .container {
+    padding: 0;
+}
+.pg-core-index .navbar {
+    background: rgba(255, 255, 255, .9);
+}
+.index-header .container {
+    padding-top: 15px;
+}
+.pg-core-index .navbar-toggle {
+    border-color: #45b865;
+}
+.pg-core-index .navbar-toggle:hover {
+    background:  #fff;
+}
+.pg-core-index .navbar-toggle .icon-bar {
+    background: #666;
+}
+.pg-core-index .navbar-toggle .icon-bar:hover {
+    background:  #45b865;
+}
+.pg-core-index .index-header .navbar-brand {
+    padding: 0 15px;
+}
+.pg-core-index .navbar-collapse {
+    border-color: #FFF;
+}
+.pg-core-index .section-top {
+    margin-top: 78px;
+    height: 405px;
+    padding: 0;
+}
+.pg-core-index .section-top .slogan {
+    color: #fff;
+    text-align: center;
+}
+.pg-core-index .slogan h2 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 45px;
+}
+.pg-core-index .slogan h3 {
+    font-size: 25px;
+}
+
+/*登录区域*/
+.section-content .row-partition {
+    background: #f4f4f4;
+}
+.login-section .login-group {
+    position: relative;
+}
+.login-section .fa {
+    position: absolute;
+    left: 22px;
+    top: 12px;
+    font-size:18px;
+    color: #999;
+    text-align: center;
+    z-index: 9999;
+}
+.login-section .panel {
+    border-radius: 5px;
+}
+.login-section .panel-heading {
+    padding: 15px 30px;
+}
+.login-section .panel-body {
+    padding: 15px 30px;
+}
+.login-section .input-lg {
+    padding-left: 35px;
+}
+.login-section .panel-title {
+    color: #666;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.footer {
+    margin-top: 40px;
+    padding: 40px 0;
+    color: #949393;
+    text-align: center;
+    background-color: #3B3B3B;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer-link,
+.footer-link:hover,
+.footer-link:active {
+    display: block;
+    color: #949393;
+    font-size: 1.7rem;
+    margin-bottom: 24px;
+}

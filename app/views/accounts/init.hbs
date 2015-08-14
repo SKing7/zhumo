@@ -1,0 +1,67 @@
+{{!< default}}
+
+{{#append "pageStyles"}}
+    <link rel="stylesheet" type="text/css" href="/css/account.css">
+{{/append}}
+
+<div class="row">
+
+    <div class="col-md-6 col-md-offset-3">
+
+        <p class="alert alert-warning alert-condensed">声明：朱墨记账将严格遵守<a href="">用户信息保密协议</a>，保障用户权益。</p>
+
+        {{#if errors}}
+        <p class="alert alert-danger alert-condensed">{{errors}}</p>
+        {{/if}}
+
+        <form class="form-horizontal form-signup" action="/accounts/init" role="form" method="post" novalidate>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title text-center">恭喜注册成功</h2>
+                    <p class="text-center">为了计算您的资产负债和总收支，请继续完善账户信息。</p>
+                </div>
+                <div class="panel-body">
+
+                    {{#each accounts}}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{name}}</label>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">￥</span>
+                                <input name="balances[{{@index}}]" type="text" class="form-control" placeholder="0.00" required />
+                            </div>
+                        </div>
+                        {{#is name '===' '现金账户'}}
+                        <div class="col-sm-6">
+                            <p class="alert alert-warning alert-condensed alert-inline">只填金额和名称，无需填真实帐号</p>
+                        </div>
+                        {{/is}}
+                        {{#is childNodes.length '>' 0}}
+                        <div class="col-sm-4">
+                            <select name="accounts[{{@index}}]" class="form-control" required>
+                                <option value="" selected>- 请选择 -</option>
+                                {{#each childNodes}}
+                                <option value="{{_id}}">{{name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        {{else}}
+                        <input name="accounts[{{@index}}]" type="hidden" class="form-control" value="{{_id}}" />
+                        {{/is}}
+                    </div>
+                    {{/each}}
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">&nbsp;</label>
+                        <div class="col-sm-10">
+                            <input type="submit" class="btn btn-primary" value="确定提交"></a>
+                            <a class="btn btn-link" href="/transactions/add">暂不完善，先逛逛</a>
+                        </div>
+                    <div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>

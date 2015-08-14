@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    {{> favicons}}
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/ucenter.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap-datepicker/css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/input-with-clear-button/src/quick-clear.css">
+    {{{block "pageStyles"}}}
+</head>
+<body class="pg-{{request.page}}">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/transactions/add"><img src="/img/logo.png" height="40"/></a>
+            </div>
+            <ul class="nav navbar-nav navbar-mega">
+                <li><a id="j-company-chooser-trigger" href="javascript:void(0);">{{request.session.company.name}} <span class="fa fa-caret-down"></span></a></li>
+            </ul>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="j-company-balance-trigger" href="javascript:void(0);">公司余额：<span class="J-all-amount all-amount">-</span><span class="fa fa-caret-down"></span></a></li>
+                    <li title="{{request.session.member.role}}:{{request.user.email}}"><a id="j-account-trigger" href="javascript:void(0);">我的账户 <span class="fa fa-caret-down"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    {{#each request.session.menu }}
+                    <li class="{{controller}}{{#is @root.request.controller '===' controller}} active{{/is}}"><a href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main-wrapper  co-{{request.page}}">
+                <div class="main">
+                    {{> messages}}
+
+                    <div class="main-heading">
+                        {{{block "header"}}}
+                    </div>
+
+                    <div class="main-content">
+                        {{{body}}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{> modals/add-company}}
+    {{> popovers/company-chooser}}
+    {{> popovers/company-balance}}
+    {{> popovers/account}}
+
+    <script src="/vendor/requirejs/require.js"></script>
+    <script src="/js/config.js"></script>
+
+    <script>
+        require(['common/ucenter'], function(module) {
+            module.init({
+                path: '{{request.path}}',
+            });
+        });
+    </script>
+
+    {{{block "pageScripts"}}}
+
+    {{#if config.debug }}
+    <script src="http://localhost:35729/livereload.js"></script>
+    {{/if}}
+
+</body>
+</html>

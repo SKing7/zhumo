@@ -1,0 +1,374 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 80px;
+}
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+    border: 0;
+}
+
+.navbar {
+    min-height: 80px;
+}
+
+.navbar-brand {
+    height: 80px;
+    padding: 20px 30px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    line-height: 20px;
+}
+
+.navbar-inverse {
+    background-color: #3B3B3B;
+    border-color: #080808;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #949393;
+}
+
+.navbar-mega > li > a {
+    font-size: 2rem;
+}
+
+.navbar-inverse .navbar-nav > li > a:active,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #080808;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
+    top:80px;
+    padding-top:0px;
+    background-color: #f6f6f6;
+}
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 80px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 0 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+.nav-sidebar li a {
+    padding: 24px 0;
+    padding-left: 30%;
+    line-height:1.5;
+    color: #9c9b9b;
+    font-size: 18px;
+}
+
+.nav-sidebar .active a {
+    color: #fff;
+    background-color: #45b865;
+}
+
+.nav-sidebar .active a:hover {
+    background-color: #45b865;
+}
+
+.nav-sidebar li:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top:24px;
+    height: 27px;
+    width: 27px;
+    background: url(i/sprites.png) no-repeat;
+    z-index: 2;
+}
+.nav-sidebar .settings:before {
+    background-position: -28px 0;
+}
+.nav-sidebar .settings.active:before {
+    background-position: 0 0;
+}
+.nav-sidebar .dashboards:before {
+    background-position: -18px -56px;
+    width: 26px;
+}
+.nav-sidebar .dashboards.active:before {
+    background-position: -56px 0;
+    width: 26px;
+}
+.nav-sidebar .reports:before {
+    background-position: -73px -56px;
+    width: 26px;
+}
+.nav-sidebar .reports.active:before {
+    background-position: -46px -56px;
+    width: 26px;
+}
+.nav-sidebar .transactions:before {
+    background-position: -47px -28px;
+}
+.nav-sidebar .transactions.active:before {
+    background-position: -19px -28px;
+}
+/*
+ * Main content
+ */
+.main-wrapper {
+    padding: 20px;
+    min-height: 720px;
+    background: #E0E2E3;
+    height: auto;
+}
+@media (min-width: 768px) {
+    .main-wrapper {
+        padding-right: 40px;
+        padding-left: 40px;
+  }
+}
+
+.main {
+    background: #FFFFFF;
+    border-radius: 2px;
+}
+
+.main-heading {
+    padding: 10px 44px 0;
+    border-bottom: 1px solid #E0E2E3;
+    height: 50px;
+}
+
+.main-heading .page-title {
+    color: #686868;
+    margin: 10px 0 0;
+    font-size: 1.6rem;
+}
+
+.main-content {
+    padding: 37px 44px;
+}
+
+.row-item {
+    padding: 5px 10px;
+}
+
+.row-item .fa {
+    color: #555555;
+    font-size: 1.6rem;
+}
+
+/**
+ * popover
+ */
+.popover-chooser { width: 240px; }
+.popover-balance { width: 150px; text-align: center; }
+.popover-account { width: 150px; text-align: center; }
+
+.popover-zhumo .popover-content {
+    padding: 0;
+}
+.popover-zhumo .popover-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.popover-zhumo a {
+    color: #45B865;
+    text-decoration: none;
+}
+.popover-menu li {
+    display: block;
+    padding: 10px 15px;
+    clear: both;
+    color: #333;
+    white-space: nowrap;
+    border-bottom: 1px solid #E0E2E3;
+}
+.popover-menu a {
+    display: block;
+}
+.popover-menu .main-anchor {
+    color: #9c9b9b;
+}
+.popover-menu li:last-child {
+    border: 0 none;
+}
+.popover-menu li:hover,
+.popover-menu li:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #F5F5F5;
+}
+.popover-menu .active,
+.popover-menu .active:hover,
+.popover-menu .active:focus {
+}
+
+.popover-chooser li {
+    padding: 15px 15px;
+}
+.popover-chooser .main-anchor {
+    font-size: 1.7rem;
+}
+.popover-chooser .active {
+    padding: 8px 15px;
+}
+.all-amount {
+    padding-right: 5px;
+}
+.header-account-info .t-label {
+    display: inline-block;
+    width: 50px;
+}
+.header-account-info h5 {
+    color: #333;
+}
+.header-account-info {
+    border-bottom: 1px solid #E0E2E3;
+    padding: 10px 20px;
+    text-align: left;
+    color: #9c9b9b;
+    font-size: 12px;
+    line-height: 1.8;
+}
+.header-account-info .account em {
+    padding-left: 10px;
+    font-style: normal;
+}
+/* pages css TODO */
+/*Dashboard*/
+.inout-data-container { min-height:300px; }
+.inout-data-container svg { overflow:visible!important; }
+
+.pg-reports-index .panel-body {
+    cursor: pointer;
+}
+.pg-dashboards-index .tab-content {
+    min-height: 150px;
+}
+
+.co-dashboards-index .panel-body {
+    position: relative;
+}
+.co-dashboards-index .date-setting-wp {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.co-reports-index .index-area {
+    width: 320px;
+    margin: 0 auto 35px;;
+    padding: 15px 20px;
+    display: block;
+    color: #666;
+    background-color: #f4f4f4;
+}
+.co-reports-index .index-area:hover {
+    text-decoration: none;
+}
+.co-reports-index .title {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+.co-reports-index .desc {
+    display: block;
+    color: #999;
+}
+
+.co-transactions-add .happened-date-wp {
+    position: relative;
+}
+.co-transactions-add .happened-date-wp .fa-calendar{
+    position: absolute;
+    right: 24px;
+    top: 9px;
+}
+.co-transactions-history .fa,
+.co-transactions-add .fa {
+    padding-left: 3px;
+    color: #666;
+    font-size: 16px;
+}
+.co-transactions-history .fa:hover,
+.co-transactions-add .fa:hover {
+    text-decoration: none;
+}
+.co-pages-contact .container,
+.co-pages-about .container,
+.co-agreements-privacy .container,
+.co-agreements-service .container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    min-height: 500px;
+}
+.co-pages-contact h2,
+.co-pages-about h2,
+.co-agreements-privacy h2,
+.co-agreements-service h2 {
+    margin-bottom: 20px;
+}
+
+.co-dashboards-index .graph-area {
+    padding: 15px;
+    height: 400px;
+}
+.co-dashboards-index .tab-content {
+    padding-bottom: 20px;
+}
+.co-dashboards-index .empty-tips {
+    padding: 20px;
+    color: #666;
+}
+.co-reports-transactions .table-report td {
+    color: #666!important;
+    font-size: 12px;
+    font-weight: normal;
+}

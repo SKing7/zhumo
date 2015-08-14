@@ -1,0 +1,65 @@
+{{!< ucenter}}
+
+{{#append "header"}}
+    {{> transactions/tab}}
+{{/append}}
+<form class="J-transactions-add form-horizontal m-bottom20 J-toggle-show-wp" data-error-container="#J-error-container" data-target-class="J-transfer-wp" action="/api/transactions/create" method="post">
+    <div class="form-group">
+        <label class="col-sm-1 control-label">记账类型</label>
+        <div class="col-sm-11 J-radio-group"></div>
+    </div>
+    <div class="J-op-group-wp">
+        <div class="form-group J-others-wp">
+            <label class="col-sm-1 control-label J-category-item">类别</label>
+            <div class="col-sm-3 J-category-item">
+                <select class="J-select-category form-control" name="category" required="true" data-msg-required="请选择记账的项目"></select>
+            </div>
+            <label class="col-sm-1 control-label">金额</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="amount" value="0.00" required="true" number="true" min="0.01">
+            </div>
+            <label class="col-sm-1 control-label">账户</label>
+            <div class="col-sm-3">
+                <select name="from" class="J-account-group form-control" required="true" data-msg-required="请选择账户"></select>
+            </div>
+        </div>
+        <div class="form-group hidden J-transfer-wp">
+            <label class="control-label col-md-1">由</label>
+            <div class="col-md-3">
+                <select name="from" class="J-account-group form-control" required="true" data-msg-required="请选择转账的来源账户"></select>
+            </div>
+            <label class="col-md-1 control-label">转至</label>
+            <div class="col-md-3">
+                <select name="to" class="J-account-group form-control" required="true" data-msg-required="请选择转账的目的账户"></select>
+            </div>
+            <label class="col-sm-1 control-label">金额</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="amount" value="0.00" required="true" number="true">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">日期</label>
+        <div class="col-sm-3 J-date-picker happened-date-wp">
+            <i class="fa fa-calendar"></i>
+            <input type="text" class="form-control" name="gmtHappened" value="{{gmtHappened}}" required="true">
+        </div>
+        <label class="col-sm-1 control-label">备注</label>
+        <div class="col-sm-7">
+            <input type="text" placeholder="点击输入备注" class="form-control" name="remark" value="{{remark}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-1">
+            <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+        <div id="J-error-container" class="col-md-7 text-left">
+        </div>
+    </div>
+</form>
+<div class="J-today-transactions">
+<h4 class="m-bottom20">今日记账：</h4>
+{{> transactions/category-tab }}
+</div>
+{{> transactions/update }}
+{{> transactions/history-table-script }}

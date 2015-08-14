@@ -1,0 +1,99 @@
+{{!< ucenter}}
+
+{{#append "header"}}
+    {{>settings/tab}}
+{{/append}}
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">授权子账户</h3>
+            </div>
+            <div class="panel-body">
+                <form id="j-add-member-form" class="form-horizontal" action="/api/companies/addmember" method="post" role="form" data-auto-validate="false">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">子账户邮箱</label>
+                        <div class="col-sm-8">
+                            <input name="email" type="text" email="true" class="j-email form-control" placeholder="请输入被授权用户的邮箱" required autofocus data-clear-btn='true' />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">设定权限</label>
+                        <div class="col-sm-8">
+                            <select name="role" class="j-role form-control">
+                                {{#each roleList}}
+                                <option value="{{key}}">{{value}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">&nbsp;</label>
+                        <div class="col-sm-8">
+                            <button class="btn btn-primary" type="submit">确定授权</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">管理子账户</h3>
+            </div>
+            <div class="panel-body">
+                {{#each members}}
+                    <div class="row-item">
+                        <div class="row j-member-item" data-email="{{user.email}}" data-role="{{role}}" data-id="{{_id}}" >
+                            <div class="col-sm-4">
+                                {{user.email}}
+                            </div>
+                            <div class="col-sm-4">
+                                权限: {{roleTitle}}
+                            </div>
+                            <div class="col-sm-2">
+                                {{#if isVerified}}
+                                <a class="j-edit-member" href="javascript:void(0)"><i class="fa fa-pencil"></i> 修改权限</a>
+                                {{else}}
+                                <span class="text-muted">邀请中...</span>
+                                {{/if}}
+                            </div>
+                            <div class="col-sm-2">
+                                <a class="j-remove-member" href="javascript:void(0)"><i class="fa fa-trash-o"></i> 注销</a>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <p class="alert">暂无任何子账户可以管理，先去授权子账户吧。</p>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="j-add-success-tip" type="text/template">
+    <h4><i class="fa fa-check text-success"></i>子账号授权完成</h4>
+    <p>系统会自动给子账户邮箱发送链接，用户通过链接设定登录密码，完成后即可共享同一账户。</p>
+</script>
+
+<form id="j-edit-member-form" class="form-horizontal" action="/api/companies/addmember" method="post" style="display:none;" role="form">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">子账户邮箱</label>
+        <div class="col-sm-8">
+            <input name="email" type="text" email="true" class="j-email form-control" placeholder="请输入被授权用户的邮箱" required autofocus data-clear-btn='true' />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">设定权限</label>
+        <div class="col-sm-8">
+            <select name="role" class="j-role form-control">
+                {{#each roleList}}
+                <option value="{{key}}">{{value}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+
+</form>
